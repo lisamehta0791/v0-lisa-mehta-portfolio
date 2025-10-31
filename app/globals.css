@@ -76,7 +76,6 @@
 }
 
 @theme inline {
-  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -124,9 +123,38 @@
   }
 }
 
-/* Enhanced animations and particle effects for eye-catching design */
+/* Enhanced animation system with more stunning effects */
 
-/* Particle animation system */
+/* Cosmic particle animations */
+@keyframes cosmic-drift {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-150px) translateX(50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes cosmic-drift-reverse {
+  0% {
+    transform: translateY(0) translateX(0) rotate(360deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-150px) translateX(-50px) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+/* Enhanced particle animation system */
 @keyframes particle-float {
   0% {
     transform: translateY(0) translateX(0);
@@ -155,6 +183,7 @@
   }
 }
 
+/* Glowing aurora animations */
 @keyframes aurora-glow {
   0%,
   100% {
@@ -165,6 +194,18 @@
   }
 }
 
+/* New shimmer aurora glow for enhanced effect */
+@keyframes aurora-glow-shimmer {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), 0 0 40px rgba(124, 58, 237, 0.15), inset 0 0 30px
+      rgba(0, 212, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.7), 0 0 80px rgba(255, 0, 110, 0.4), inset 0 0 50px rgba(124, 58, 237, 0.2);
+  }
+}
+
 @keyframes neon-pulse {
   0%,
   100% {
@@ -172,6 +213,26 @@
   }
   50% {
     text-shadow: 0 0 20px rgba(0, 212, 255, 0.8), 0 0 40px rgba(124, 58, 237, 0.6);
+  }
+}
+
+/* New neon flicker effect for more drama */
+@keyframes neon-flicker {
+  0%,
+  100% {
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.6), 0 0 20px rgba(124, 58, 237, 0.4);
+  }
+  20% {
+    text-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
+  }
+  40% {
+    text-shadow: 0 0 25px rgba(0, 212, 255, 0.9), 0 0 50px rgba(124, 58, 237, 0.7);
+  }
+  60% {
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+  }
+  80% {
+    text-shadow: 0 0 30px rgba(255, 0, 110, 0.6), 0 0 20px rgba(0, 212, 255, 0.4);
   }
 }
 
@@ -248,12 +309,35 @@
   }
 }
 
+/* New blob rotation animation */
+@keyframes blob-rotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* New shimmer effect with multiple passes */
 @keyframes shimmer {
   0% {
     background-position: -1000px 0;
   }
   100% {
     background-position: 1000px 0;
+  }
+}
+
+@keyframes shimmer-fast {
+  0% {
+    background-position: -500px 0;
+  }
+  100% {
+    background-position: 500px 0;
   }
 }
 
@@ -287,7 +371,48 @@
   }
 }
 
+/* New glow pulse effect */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), 0 0 40px rgba(124, 58, 237, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.6), 0 0 80px rgba(124, 58, 237, 0.3);
+  }
+}
+
+/* New spin animation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* New word slide effect */
+@keyframes word-slide {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Animation utility classes */
+.cosmic-drift {
+  animation: cosmic-drift 4s ease-out forwards;
+}
+
+.cosmic-drift-reverse {
+  animation: cosmic-drift-reverse 4s ease-out forwards;
+}
+
 .particle-float {
   animation: particle-float 3s ease-out forwards;
 }
@@ -300,8 +425,16 @@
   animation: aurora-glow 3s ease-in-out infinite;
 }
 
+.aurora-glow-shimmer {
+  animation: aurora-glow-shimmer 4s ease-in-out infinite;
+}
+
 .neon-pulse {
   animation: neon-pulse 2s ease-in-out infinite;
+}
+
+.neon-flicker {
+  animation: neon-flicker 3s ease-in-out infinite;
 }
 
 .rotate-slow {
@@ -332,6 +465,18 @@
   animation: scale-in 0.6s ease-out;
 }
 
+.blob-rotate {
+  animation: blob-rotate 15s ease-in-out infinite;
+}
+
+.shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.shimmer-fast {
+  animation: shimmer-fast 2s ease-in-out infinite;
+}
+
 .float {
   animation: float 6s ease-in-out infinite;
 }
@@ -344,11 +489,20 @@
   animation: pulse-scale 2s ease-in-out infinite;
 }
 
+.glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
 /* Glass morphism effect */
 .glass {
   background: rgba(17, 24, 41, 0.6);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(0, 212, 255, 0.15);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .glass-hover:hover {
@@ -356,6 +510,20 @@
   box-shadow: 0 0 30px rgba(0, 212, 255, 0.25);
   border-color: rgba(0, 212, 255, 0.4);
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Enhanced glass effects with glow */
+.glass-glow {
+  background: rgba(17, 24, 41, 0.5);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.1), inset 0 0 30px rgba(0, 212, 255, 0.05);
+}
+
+.glass-glow:hover {
+  background: rgba(17, 24, 41, 0.7);
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 0 50px rgba(0, 212, 255, 0.3), inset 0 0 30px rgba(0, 212, 255, 0.1);
 }
 
 /* Text effects */
@@ -369,11 +537,24 @@
   text-shadow: 0 0 10px rgba(255, 0, 110, 0.6), 0 0 20px rgba(0, 212, 255, 0.3);
 }
 
+/* New gradient text effect with animation */
 .gradient-text {
   background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 50%, #ff006e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 /* Interactive card effects */
@@ -397,6 +578,23 @@
   left: 100%;
 }
 
+/* New enhanced hover shine effect */
+.interactive-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.interactive-card:hover::after {
+  opacity: 1;
+}
+
 /* Hover effects */
 .hover-lift {
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
@@ -407,10 +605,58 @@
   box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
 }
 
+/* New enhanced hover glow */
 .hover-glow {
   transition: all 0.3s ease;
 }
 
 .hover-glow:hover {
   box-shadow: 0 0 20px rgba(0, 212, 255, 0.4), inset 0 0 20px rgba(0, 212, 255, 0.1);
+}
+
+/* New glow-expand effect */
+.glow-expand {
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.glow-expand:hover {
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.5), 0 0 80px rgba(124, 58, 237, 0.3);
+  transform: scale(1.02);
+}
+
+/* Floating animation for elements */
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* New text reveal animation */
+@keyframes text-reveal {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.text-reveal {
+  animation: text-reveal 1s ease-out;
+}
+
+/* Add circular profile image styling with proper focus */
+.profile-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.profile-circle-container {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
 }
