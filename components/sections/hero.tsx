@@ -34,6 +34,12 @@ export default function Hero({ setActiveSection }: HeroProps) {
     element?.scrollIntoView({ behavior: "smooth" })
   }
 
+  const stats = [
+    { value: "50+", label: "Projects" },
+    { value: "95%", label: "Accuracy" },
+    { value: "VIT", label: "Chennai" },
+  ]
+
   return (
     <section
       id="home"
@@ -107,6 +113,15 @@ export default function Hero({ setActiveSection }: HeroProps) {
           Transforming ideas into intelligent solutions | B.Tech CSE (AI & Robotics) at VIT Chennai | Building the
           future with technology
         </p>
+
+        <div className="flex justify-center gap-6 mb-8 flex-wrap slide-in-up" style={{ animationDelay: "0.5s" }}>
+          {stats.map((stat, idx) => (
+            <div key={idx} className="glass-glow px-6 py-3 rounded-lg hover-lift">
+              <div className="text-xl md:text-2xl font-bold text-primary">{stat.value}</div>
+              <div className="text-xs md:text-sm text-muted-foreground">{stat.label}</div>
+            </div>
+          ))}
+        </div>
 
         <div
           className="flex flex-col sm:flex-row gap-4 justify-center items-center slide-in-up"

@@ -1,6 +1,7 @@
 "use client"
 
 import { ExternalLink, Github, Star, TrendingUp } from "lucide-react"
+import Image from "next/image"
 
 interface ProjectsProps {
   setActiveSection: (section: string) => void
@@ -17,6 +18,7 @@ export default function Projects({ setActiveSection }: ProjectsProps) {
       status: "In Development",
       icon: "🤖",
       impact: "High",
+      image: "/ai-neural-network.png",
     },
     {
       title: "Sentiment Analysis Engine",
@@ -27,6 +29,7 @@ export default function Projects({ setActiveSection }: ProjectsProps) {
       status: "Completed",
       icon: "💬",
       impact: "High",
+      image: "/sentiment-analysis-data-visualization.jpg",
     },
     {
       title: "Autonomous Robot Navigator",
@@ -35,8 +38,9 @@ export default function Projects({ setActiveSection }: ProjectsProps) {
       tech: ["C++", "ROS", "Robotics", "Algorithm Design"],
       link: "#",
       status: "In Development",
-      icon: "🤖",
+      icon: "🚀",
       impact: "Critical",
+      image: "/robot-navigation-algorithm.jpg",
     },
     {
       title: "AI Portfolio Platform",
@@ -47,6 +51,7 @@ export default function Projects({ setActiveSection }: ProjectsProps) {
       status: "Completed",
       icon: "✨",
       impact: "Medium",
+      image: "/modern-portfolio-interface-design.jpg",
     },
   ]
 
@@ -66,84 +71,101 @@ export default function Projects({ setActiveSection }: ProjectsProps) {
           Showcasing innovative AI/ML solutions and technical excellence
         </p>
 
-        {/* Projects grid */}
         <div className="grid gap-6 mb-12">
           {projects.map((project, idx) => (
             <div
               key={idx}
-              className="glass p-8 rounded-lg group hover-lift interactive-card border border-primary/20 hover:border-primary/60 transition-all slide-in-up"
+              className="glass p-0 rounded-lg group hover-lift interactive-card border border-primary/20 hover:border-primary/60 transition-all slide-in-up overflow-hidden"
               style={{ animationDelay: `${idx * 0.15}s` }}
             >
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex-1">
-                  <div className="flex items-center gap-4 mb-3">
-                    <span className="text-3xl">{project.icon}</span>
-                    <div>
-                      <h3 className="text-2xl font-bold text-glow group-hover:neon-pulse">{project.title}</h3>
-                      <div className="flex gap-3 mt-2 flex-wrap">
-                        <span
-                          className={`px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 ${
-                            project.status === "Completed"
-                              ? "bg-green-500/20 text-green-300 border border-green-500/40"
-                              : "bg-blue-500/20 text-blue-300 border border-blue-500/40"
-                          }`}
-                        >
-                          {project.status === "Completed" ? "✓" : "⚡"}
-                          {project.status}
-                        </span>
-                        <span className="px-3 py-1 rounded-full text-xs font-bold bg-accent/20 text-accent border border-accent/40 flex items-center gap-1">
-                          <TrendingUp size={14} />
-                          {project.impact}
-                        </span>
+              <div className="grid md:grid-cols-2 gap-0">
+                {/* Project Image */}
+                <div className="relative h-64 md:h-auto overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20">
+                  <Image
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+
+                {/* Project Info */}
+                <div className="p-8 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-4 mb-3">
+                      <span className="text-3xl">{project.icon}</span>
+                      <div>
+                        <h3 className="text-2xl font-bold text-glow group-hover:neon-pulse">{project.title}</h3>
+                        <div className="flex gap-3 mt-2 flex-wrap">
+                          <span
+                            className={`px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 ${
+                              project.status === "Completed"
+                                ? "bg-green-500/20 text-green-300 border border-green-500/40"
+                                : "bg-blue-500/20 text-blue-300 border border-blue-500/40"
+                            }`}
+                          >
+                            {project.status === "Completed" ? "✓" : "⚡"}
+                            {project.status}
+                          </span>
+                          <span className="px-3 py-1 rounded-full text-xs font-bold bg-accent/20 text-accent border border-accent/40 flex items-center gap-1">
+                            <TrendingUp size={14} />
+                            {project.impact}
+                          </span>
+                        </div>
                       </div>
                     </div>
+                    <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors mb-4">
+                      {project.description}
+                    </p>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
-                    {project.description}
-                  </p>
+
+                  {/* Tech stack */}
+                  <div>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.tech.map((tech, tidx) => (
+                        <span
+                          key={tidx}
+                          className="px-3 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-primary/25 to-secondary/25 border border-primary/50 text-primary hover:border-primary transition-all group-hover:scale-105"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* CTA Links */}
+                    <div className="flex gap-4 flex-wrap">
+                      <a
+                        href={project.link}
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-primary/20 to-secondary/20 text-primary hover:from-primary/40 hover:to-secondary/40 transition-all font-semibold border border-primary/30"
+                      >
+                        <ExternalLink size={16} />
+                        View Project
+                      </a>
+                      <a
+                        href="#"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-secondary/20 to-accent/20 text-secondary hover:from-secondary/40 hover:to-accent/40 transition-all font-semibold border border-secondary/30"
+                      >
+                        <Github size={16} />
+                        Source Code
+                      </a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-
-              {/* Tech stack */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tech.map((tech, tidx) => (
-                  <span
-                    key={tidx}
-                    className="px-3 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-primary/25 to-secondary/25 border border-primary/50 text-primary hover:border-primary transition-all group-hover:scale-105"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              {/* CTA Links */}
-              <div className="flex gap-4 flex-wrap">
-                <a
-                  href={project.link}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-primary/20 to-secondary/20 text-primary hover:from-primary/40 hover:to-secondary/40 transition-all font-semibold border border-primary/30"
-                >
-                  <ExternalLink size={16} />
-                  View Project
-                </a>
-                <a
-                  href="#"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-secondary/20 to-accent/20 text-secondary hover:from-secondary/40 hover:to-accent/40 transition-all font-semibold border border-secondary/30"
-                >
-                  <Github size={16} />
-                  Source Code
-                </a>
               </div>
             </div>
           ))}
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center glass p-12 rounded-lg border border-primary/30 hover-lift interactive-card slide-in-up">
-          <Star className="mx-auto mb-4 text-accent animate-pulse" size={36} />
-          <p className="text-xl text-foreground mb-2 font-bold">
-            More <span className="text-glow">Projects</span> Coming Soon
-          </p>
-          <p className="text-muted-foreground">Continuously innovating and building cutting-edge AI/ML solutions</p>
+        <div className="text-center glass p-12 rounded-lg border border-primary/30 hover-lift interactive-card slide-in-up relative overflow-hidden group">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div className="relative z-10">
+            <Star className="mx-auto mb-4 text-accent animate-pulse" size={36} />
+            <p className="text-xl text-foreground mb-2 font-bold">
+              More <span className="text-glow">Projects</span> Coming Soon
+            </p>
+            <p className="text-muted-foreground">Continuously innovating and building cutting-edge AI/ML solutions</p>
+          </div>
         </div>
       </div>
     </section>

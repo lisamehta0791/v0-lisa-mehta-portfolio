@@ -1,6 +1,6 @@
 "use client"
 
-import { Cpu, Rocket, Brain, Zap } from "lucide-react"
+import { Cpu, Rocket, Brain, Zap, Award, Code2, Lightbulb, Target, Sparkles, Palette } from "lucide-react"
 
 interface AboutProps {
   setActiveSection: (section: string) => void
@@ -12,6 +12,19 @@ export default function About({ setActiveSection }: AboutProps) {
     { icon: Rocket, label: "Innovation", color: "text-secondary" },
     { icon: Cpu, label: "Tech Stack", color: "text-accent" },
     { icon: Zap, label: "Quick Learner", color: "text-primary" },
+  ]
+
+  const achievements = [
+    { icon: Award, label: "VIT Chennai", sublabel: "B.Tech CSE (AI & Robotics)" },
+    { icon: Code2, label: "50+", sublabel: "Projects Completed" },
+    { icon: Lightbulb, label: "95%", sublabel: "Accuracy Achieved" },
+    { icon: Target, label: "ML Expert", sublabel: "Deep Learning Specialist" },
+  ]
+
+  const innovationCards = [
+    { icon: Brain, title: "AI Solutions", description: "Building intelligent systems with advanced ML models" },
+    { icon: Rocket, title: "Innovation", description: "Creating cutting-edge technology solutions" },
+    { icon: Palette, title: "Creative Tech", description: "Blending design and technology seamlessly" },
   ]
 
   return (
@@ -26,6 +39,27 @@ export default function About({ setActiveSection }: AboutProps) {
         <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center slide-in-up">
           <span className="gradient-text">About Me</span>
         </h2>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 slide-in-up">
+          {achievements.map((achievement, idx) => (
+            <div
+              key={idx}
+              className="glass-glow p-6 rounded-lg hover-lift interactive-card group scale-in glow-expand"
+              style={{ animationDelay: `${idx * 0.1}s` }}
+            >
+              <achievement.icon
+                className={`${achievement.color} mx-auto mb-3 group-hover:scale-125 transition-all duration-300 group-hover:drop-shadow-lg`}
+                size={32}
+              />
+              <p className="font-bold text-sm text-foreground group-hover:text-primary transition-colors text-center">
+                {achievement.label}
+              </p>
+              <p className="text-xs text-muted-foreground group-hover:text-foreground/70 transition-colors text-center mt-1">
+                {achievement.sublabel}
+              </p>
+            </div>
+          ))}
+        </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           {features.map((feature, idx) => (
@@ -46,11 +80,39 @@ export default function About({ setActiveSection }: AboutProps) {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-8">
-          <div className="glass-glow p-8 rounded-lg hover-lift interactive-card slide-in-left glow-expand group flex flex-col items-center justify-center">
-            <h3 className="text-2xl font-bold text-glow mb-2">Ready to Innovate</h3>
-            <p className="text-center text-muted-foreground group-hover:text-foreground/90 transition-colors">
+          <div className="glass-glow p-8 rounded-lg hover-lift interactive-card slide-in-left glow-expand group">
+            <div className="flex items-center gap-3 mb-6">
+              <Sparkles className="text-primary glow-pulse" size={28} />
+              <h3 className="text-2xl font-bold text-glow">Ready to Innovate</h3>
+            </div>
+            <p className="text-center text-muted-foreground group-hover:text-foreground/90 transition-colors mb-6">
               Let's build something amazing together
             </p>
+
+            <div className="grid grid-cols-1 gap-3">
+              {innovationCards.map((card, idx) => (
+                <div
+                  key={idx}
+                  className="p-4 rounded-lg bg-gradient-to-r from-primary/15 to-secondary/15 border border-primary/30 hover:border-primary/60 transition-all hover-lift group/card cursor-pointer"
+                  style={{ animationDelay: `${idx * 0.1}s` }}
+                >
+                  <div className="flex items-start gap-3">
+                    <card.icon
+                      className="text-primary group-hover/card:scale-110 transition-transform flex-shrink-0 mt-1"
+                      size={20}
+                    />
+                    <div>
+                      <p className="font-bold text-sm text-foreground group-hover/card:text-primary transition-colors">
+                        {card.title}
+                      </p>
+                      <p className="text-xs text-muted-foreground group-hover/card:text-foreground/70 transition-colors mt-1">
+                        {card.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="glass-glow p-8 rounded-lg hover-lift interactive-card slide-in-right glow-expand group">
