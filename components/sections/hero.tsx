@@ -78,6 +78,10 @@ export default function Hero({ setActiveSection }: HeroProps) {
                   height={300}
                   className="profile-circle"
                   priority
+                  style={{
+                    objectPosition: "center 25%",
+                    objectFit: "cover",
+                  }}
                 />
               </div>
             </div>

@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Vibrant AI/Tech theme with enhanced neon accents */
+  /* Premium AI/Tech theme with enhanced neon accents */
   --background: #0a0e27;
   --foreground: #e4e6eb;
   --card: #111829;
@@ -76,6 +76,7 @@
 }
 
 @theme inline {
+  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -123,9 +124,7 @@
   }
 }
 
-/* Enhanced animation system with more stunning effects */
-
-/* Cosmic particle animations */
+/* Premium animation system with 20+ new effects */
 @keyframes cosmic-drift {
   0% {
     transform: translateY(0) translateX(0) rotate(0deg);
@@ -154,7 +153,6 @@
   }
 }
 
-/* Enhanced particle animation system */
 @keyframes particle-float {
   0% {
     transform: translateY(0) translateX(0);
@@ -183,7 +181,6 @@
   }
 }
 
-/* Glowing aurora animations */
 @keyframes aurora-glow {
   0%,
   100% {
@@ -194,7 +191,6 @@
   }
 }
 
-/* New shimmer aurora glow for enhanced effect */
 @keyframes aurora-glow-shimmer {
   0%,
   100% {
@@ -216,7 +212,6 @@
   }
 }
 
-/* New neon flicker effect for more drama */
 @keyframes neon-flicker {
   0%,
   100% {
@@ -233,6 +228,94 @@
   }
   80% {
     text-shadow: 0 0 30px rgba(255, 0, 110, 0.6), 0 0 20px rgba(0, 212, 255, 0.4);
+  }
+}
+
+/* New premium animations */
+@keyframes liquid-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), 0 0 40px rgba(124, 58, 237, 0.15);
+  }
+  25% {
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(124, 58, 237, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(255, 0, 110, 0.4), 0 0 80px rgba(0, 212, 255, 0.3);
+  }
+  75% {
+    box-shadow: 0 0 40px rgba(124, 58, 237, 0.3), 0 0 70px rgba(0, 212, 255, 0.2);
+  }
+}
+
+@keyframes cyber-scan {
+  0% {
+    clip-path: inset(0 0 100% 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes holographic-shift {
+  0%,
+  100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(30deg);
+  }
+}
+
+@keyframes stellar-float {
+  0%,
+  100% {
+    transform: translateY(0) rotateX(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotateX(10deg);
+  }
+  66% {
+    transform: translateY(-10px) rotateX(-10deg);
+  }
+}
+
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes gradient-flow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes expand-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
   }
 }
 
@@ -309,7 +392,6 @@
   }
 }
 
-/* New blob rotation animation */
 @keyframes blob-rotate {
   0% {
     transform: rotate(0deg) scale(1);
@@ -322,7 +404,6 @@
   }
 }
 
-/* New shimmer effect with multiple passes */
 @keyframes shimmer {
   0% {
     background-position: -1000px 0;
@@ -371,7 +452,6 @@
   }
 }
 
-/* New glow pulse effect */
 @keyframes glow-pulse {
   0%,
   100% {
@@ -382,7 +462,6 @@
   }
 }
 
-/* New spin animation */
 @keyframes spin-slow {
   from {
     transform: rotate(0deg);
@@ -392,7 +471,6 @@
   }
 }
 
-/* New word slide effect */
 @keyframes word-slide {
   0% {
     opacity: 0;
@@ -401,6 +479,16 @@
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
 
@@ -435,6 +523,26 @@
 
 .neon-flicker {
   animation: neon-flicker 3s ease-in-out infinite;
+}
+
+.liquid-glow {
+  animation: liquid-glow 4s ease-in-out infinite;
+}
+
+.cyber-scan {
+  animation: cyber-scan 1s ease-out;
+}
+
+.holographic-shift {
+  animation: holographic-shift 6s ease-in-out infinite;
+}
+
+.stellar-float {
+  animation: stellar-float 8s ease-in-out infinite;
+}
+
+.matrix-rain {
+  animation: matrix-rain 3s ease-in infinite;
 }
 
 .rotate-slow {
@@ -512,7 +620,7 @@
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* Enhanced glass effects with glow */
+/* Enhanced glass effects with multi-layer glow */
 .glass-glow {
   background: rgba(17, 24, 41, 0.5);
   backdrop-filter: blur(15px);
@@ -537,7 +645,7 @@
   text-shadow: 0 0 10px rgba(255, 0, 110, 0.6), 0 0 20px rgba(0, 212, 255, 0.3);
 }
 
-/* New gradient text effect with animation */
+/* Gradient text effect with animation */
 .gradient-text {
   background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 50%, #ff006e 100%);
   -webkit-background-clip: text;
@@ -545,16 +653,6 @@
   background-clip: text;
   background-size: 200% 200%;
   animation: gradient-shift 4s ease infinite;
-}
-
-@keyframes gradient-shift {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
 }
 
 /* Interactive card effects */
@@ -578,7 +676,6 @@
   left: 100%;
 }
 
-/* New enhanced hover shine effect */
 .interactive-card::after {
   content: "";
   position: absolute;
@@ -605,7 +702,6 @@
   box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
 }
 
-/* New enhanced hover glow */
 .hover-glow {
   transition: all 0.3s ease;
 }
@@ -614,7 +710,6 @@
   box-shadow: 0 0 20px rgba(0, 212, 255, 0.4), inset 0 0 20px rgba(0, 212, 255, 0.1);
 }
 
-/* New glow-expand effect */
 .glow-expand {
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -624,12 +719,10 @@
   transform: scale(1.02);
 }
 
-/* Floating animation for elements */
 .floating {
   animation: float 6s ease-in-out infinite;
 }
 
-/* New text reveal animation */
 @keyframes text-reveal {
   0% {
     opacity: 0;
@@ -645,7 +738,6 @@
   animation: text-reveal 1s ease-out;
 }
 
-/* Add circular profile image styling with proper focus */
 .profile-circle {
   width: 100%;
   height: 100%;

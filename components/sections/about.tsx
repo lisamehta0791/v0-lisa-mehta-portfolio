@@ -1,7 +1,6 @@
 "use client"
 
 import { Cpu, Rocket, Brain, Zap } from "lucide-react"
-import Image from "next/image"
 
 interface AboutProps {
   setActiveSection: (section: string) => void
@@ -48,18 +47,6 @@ export default function About({ setActiveSection }: AboutProps) {
 
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           <div className="glass-glow p-8 rounded-lg hover-lift interactive-card slide-in-left glow-expand group flex flex-col items-center justify-center">
-            <div className="relative w-48 h-auto md:w-56 md:h-auto mb-6">
-              <div className="absolute -inset-3 bg-gradient-to-r from-primary/60 via-secondary/60 to-accent/60 rounded-3xl opacity-30 blur-2xl aurora-glow-shimmer"></div>
-              <div className="relative w-full h-auto rounded-3xl glass-glow overflow-hidden">
-                <Image
-                  src="/profile.jpg"
-                  alt="Lisa Mehta"
-                  width={300}
-                  height={400}
-                  className="object-cover rounded-3xl"
-                />
-              </div>
-            </div>
             <h3 className="text-2xl font-bold text-glow mb-2">Ready to Innovate</h3>
             <p className="text-center text-muted-foreground group-hover:text-foreground/90 transition-colors">
               Let's build something amazing together
